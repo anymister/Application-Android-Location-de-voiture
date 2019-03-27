@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:id="@+id/db" android:title="Mon profil"
-    android:icon="@drawable/ic_magnifying_glass"/>
-    <item android:id="@+id/event" android:title="Annonces"
-        android:icon="@drawable/ic_taxi"/>
+<item android:id="@+id/profil" android:title="Mon profil"
+    android:icon="@drawable/ic_profil"/>
+    <item android:id="@+id/annonces" android:title="Annonces"
+        android:icon="@drawable/ic_annonces"/>
 
-    <item android:id="@+id/search" android:title="Mes locations"
-        android:icon="@drawable/ic_launcher_background"/>
-    <item android:id="@+id/avtivities" android:title="Mes voitures"
-        android:icon="@drawable/ic_taxi"/>
-    <item android:id="@+id/setting" android:title="Parametres"
-        android:icon="@drawable/ic_launcher_foreground"/>
-    <item android:id="@+id/logout" android:title="Déconnexion"
-        android:icon="@drawable/ic_turn_on"/>
+    <item android:id="@+id/mesLocation" android:title="Mes locations"
+        android:icon="@drawable/ic_historique"/>
+    <item android:id="@+id/mesVoitures" android:title="Mes voitures"
+        android:icon="@drawable/ic_mesvoitures"/>
+    <item android:id="@+id/parametres" android:title="Parametres"
+        android:icon="@drawable/ic_sharp_settings_24px"/>
+    <item android:id="@+id/deconnexion" android:title="Déconnexion"
+        android:icon="@drawable/ic_deconnexion"/>
 
 </menu>

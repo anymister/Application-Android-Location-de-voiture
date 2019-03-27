@@ -13,7 +13,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="11dp"
-        android:text="Anis MEZRAG"
+        android:text="Location de voitures"
         android:textColor="@color/colorText"
         android:textSize="18sp" />
 
@@ -21,8 +21,16 @@
         android:id="@+id/imageView"
         android:layout_width="83dp"
         android:layout_height="89dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="149dp"
+        android:layout_marginLeft="149dp"
         android:layout_marginTop="10dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_marginEnd="152dp"
+        android:layout_marginRight="152dp"
+        android:visibility="visible"
+        tools:srcCompat="@drawable/ic_taxi" />
 </RelativeLayout>

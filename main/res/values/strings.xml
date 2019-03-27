@@ -15,4 +15,6 @@
     </string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="item_default_price">0 $</string>
+    <string name="item_default_name">Nom de la voiture</string>
 </resources>

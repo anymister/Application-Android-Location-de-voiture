@@ -29,20 +29,20 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_regist;
     private ProgressBar loading;
     private static String URL_REGIST="https://locationwordpress.000webhostapp.com/sitePHP/appli/register.php";
-
+private Button conn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getSupportActionBar().setTitle("Inscription");
         loading=findViewById(R.id.loading);
         name =findViewById(R.id.name);
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
         c_password=findViewById(R.id.c_password);
         btn_regist=findViewById(R.id.btn_regist);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btn_regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,13 +67,11 @@ try{
     JSONObject jsonObject=new JSONObject (response);
     String success=jsonObject.getString("success");
    // Toast.makeText(MainActivity.this, "arriver à success !", Toast.LENGTH_SHORT).show();
-    if(success.equals("1"))
+    if(success.equals("1") && name!=null && email!=null && password!=null && c_password!=null)
     {
         Toast.makeText(MainActivity.this, "Bravo ^^!", Toast.LENGTH_SHORT).show();
         Intent otherActivity= new Intent(getApplicationContext(),Connexion.class);
-
         startActivity(otherActivity);
-
         finish();
     }
    /* if(success.equals("2"))

@@ -1,12 +1,25 @@
 package com.anisapp.locationdevoiture;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
-public class MenuPrincipal extends AppCompatActivity {
+import com.anisapp.locationdevoiture.adapter.HighTechAdapter;
+import com.anisapp.locationdevoiture.models.HighTech;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MenuPrincipal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 private DrawerLayout drawerlayout;
 private ActionBarDrawerToggle mToggle;
 
@@ -14,14 +27,59 @@ private ActionBarDrawerToggle mToggle;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-        drawerlayout=(DrawerLayout) findViewById(R.id.drawerlayout);
+        getSupportActionBar().setTitle("Annonces");
+        drawerlayout=findViewById(R.id.drawerlayout);
         mToggle=new ActionBarDrawerToggle(this, drawerlayout,R.string.open,R.string.close);
-
+        NavigationView navigationView=findViewById(R.id.design_navigation_view);
+        navigationView.setNavigationItemSelectedListener(this);
         drawerlayout.addDrawerListener(mToggle);
 
-        mToggle.syncState();
+       mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        List<HighTech> highTechList=new ArrayList<>();
+        highTechList.add(new HighTech("astone","astone",10));
+        highTechList.add(new HighTech("vintage", "vintage",100));
+        highTechList.add(new HighTech("","sport", 1000));
 
+        ListView shopListeView= findViewById(R.id.liste);
+        shopListeView.setAdapter(new HighTechAdapter(this, highTechList ));
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            switch (item.getItemId()) {
+                case R.id.profil:
+                    Intent otherActivity= new Intent(getApplicationContext(),Profil.class);
+                    startActivity(otherActivity);
+                    finish();
+                    break;
+                case R.id.mesLocation:
+                    Intent location= new Intent(getApplicationContext(),MesLocations.class);
+                    startActivity(location);
+                    finish();
+                    break;
+                case R.id.annonces:
+                    Toast.makeText(this,"Vous etes sur la page Annonces",Toast.LENGTH_LONG).show();
+                  break;
+                case R.id.mesVoitures:
+                    Intent mesvoitures= new Intent(getApplicationContext(),MesVoitures.class);
+                    startActivity(mesvoitures);
+                    finish();                    break;
+                case R.id.parametres:
+                    Intent parametres= new Intent(getApplicationContext(),Parametres.class);
+                    startActivity(parametres);
+                    finish();                    break;
+                case R.id.deconnexion:
+                    Intent dec= new Intent(getApplicationContext(),Connexion.class);
+                    startActivity(dec);
+                    Toast.makeText(this,"Vous etes déconnecté ^^",Toast.LENGTH_LONG).show();
+                    finish();                    break;
+
+        }
+        drawerlayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     @Override
@@ -35,4 +93,5 @@ return true;
         return super.onOptionsItemSelected(item);
 
     }
+
 }
